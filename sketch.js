@@ -81,6 +81,7 @@ function keyPressed() {
         frame = 0;
         player = { posX: 100, posY: 00, image: loadImage("FlappyBird.png"), applyGravity: applyGravity };
         gravity = -1;
+        isStarted = false;
         blocks = [];
     }
 }
