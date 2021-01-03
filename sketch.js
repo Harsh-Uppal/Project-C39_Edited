@@ -39,6 +39,7 @@ function draw() {
     else
     {
         if(!isStarted){
+            stroke("black");
             rect(10,10,100,100);
             text("Easy",40,40);
             rect(110,10,100,100);
