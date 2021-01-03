@@ -113,7 +113,7 @@ function mousePressed(){
             isStarted = true;
         }
         else if(mouseX > 209 && mouseX < 310){
-            difficulty = 3;
+            difficulty = 4;
             isStarted = true;
         }
     }
