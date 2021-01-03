@@ -102,7 +102,7 @@ function displayPlayer() {
 function mousePressed(){
     if(mouseX > 9 && mouseX < 110)
     {
-        if(!isStarted)
+        if(isStarted)
             return;
         if(mouseY > 9 && mouseY < 110){
             difficulty = 1;
