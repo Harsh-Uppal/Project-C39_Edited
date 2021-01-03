@@ -5,7 +5,7 @@ const Bodies = Matter.Bodies;
 const Body = Matter.Body;
 
 //All Variables
-let CamX = 0, CamY = 0, player, gravity = -1, upArrawPressed = false,blocks = [],blockImg,frame = 0,isOver = false;
+let CamX = 0, CamY = 0, player, gravity = -1, upArrawPressed = false,blocks = [],blockImg,frame = 0,isOver = false,isStarted = false,difficulty = 0;
 let gameOVerIMg;
 
 function setup() {
@@ -38,11 +38,18 @@ function draw() {
     }
     else
     {
+        if(!isStarted){
+            rect(10,10,100,100);
+            rect(110,10,100,100);
+            rect(210,10,100,100);
+            return;
+        }
+        
         applyGravity();
         displayPlayer();
         displayObstacles();
 
-        if (frame % 200 == 0) {
+        if (frame % (200/difficulty) == 0) {
             createObstacles();
         }
 
@@ -63,7 +70,7 @@ function draw() {
 
 function keyPressed() {
     //catch key presses
-    if (keyCode == 38 && !isOver) {
+    if (keyCode == 38 && !isOver && isStarted) {
         upArrawPressed = true;
     }
     else if (isOver && keyCode == 32) {
@@ -90,6 +97,26 @@ function applyGravity() {
 
 function displayPlayer() {
     image(player.image, player.posX, player.posY, 40, 30);
+}
+
+function mousePressed(){
+    if(mouseX > 9 && mouseX < 110)
+    {
+        if(!isStarted)
+            return;
+        if(mouseY > 9 && mouseY < 110){
+            difficulty = 1;
+            isStarted = true;
+        }
+        else if(mouseY > 109 && mouseY < 210){
+            difficulty = 2;
+            isStarted = true;
+        }
+        else if(mouseY > 209 && mouseY < 310){
+            difficulty = 3;
+            isStarted = true;
+        }
+    }
 }
 
 function createObstacles() {
