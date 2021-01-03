@@ -42,9 +42,9 @@ function draw() {
             rect(10,10,100,100);
             text("Easy",40,40);
             rect(110,10,100,100);
-            text("Normal",40,40);
+            text("Normal",140,40);
             rect(210,10,100,100);
-            text("Hard",40,40);
+            text("Hard",240,40);
             return;
         }
         
