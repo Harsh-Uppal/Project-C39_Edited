@@ -40,6 +40,8 @@ function draw() {
     {
         if(!isStarted){
             stroke("black");
+            textSize(10);
+            textFont("");
             rect(10,10,100,100);
             text("Easy",40,40);
             rect(110,10,100,100);
